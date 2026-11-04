@@ -1,0 +1,13 @@
+export { default as Cover } from "./Cover.vue";
+export { default as Intro } from "./Intro.vue";
+export { default as Planning } from "./Planning.vue";
+export { default as Venue } from "./Venue.vue";
+export { default as Sleepover } from "./Sleepover.vue";
+export { default as Town } from "./Town.vue";
+export { default as Transport } from "./Transport.vue";
+export { default as ExtraInfo } from "./ExtraInfo.vue";
+export { default as Invite } from "./Invite.vue";
+export { default as Contact } from "./Contact.vue";
+export { default as ConfirmForm } from "./ConfirmForm.vue";
+export { default as LoveStory } from "./LoveStory.vue";
+export { default as FinalCover } from "./FinalCover.vue";
