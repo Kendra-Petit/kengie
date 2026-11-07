@@ -1,16 +1,20 @@
 <template>
    <div class="Invite">
       <Title text="Una celebración íntima" />
-      <p class="Text">Hemos preparado estos días para compartirlos con las personas más cercanas a nosotras.</p>
+      <!-- <p class="Text">Hemos preparado estos días para compartirlos con las personas más cercanas a nosotras.</p> -->
       <div class="Wrapper">
          <div class="TicketWrapper">
             <p>Esta invitación es para </p>
             <div class="Ticket" :style="{ backgroundImage: `url(${require(`@/assets/imgs/icons/ticket.webp`)})` }">
                <div class="TicketContent">
-                  <h2>RICARDO & MARY</h2>
+                  <h2>
+                     {{ guests.slice(0, -1).map(guest => guest.name).join(', ') }}
+                     {{ guests.length > 1 ? ' & ' : '' }}
+                     {{ guests.length ? guests[guests.length - 1].name : '' }}
+                  </h2>
                </div>
             </div>
-            <p class="Text">únicamente.</p>
+            <!-- <p class="Text">únicamente.</p> -->
          </div>
          <p class="Text">Gracias por comprenderlo y por formar parte de este momento tan especial para nosotras.</p>
       </div>
@@ -19,11 +23,15 @@
 
 <script>
 import { Title } from '@/components'
+import VueTypes from 'vue-types'
 
 export default {
    name: 'Invite',
    components: {
       Title,
+   },
+   props: {
+      guests: VueTypes.array
    },
    data() {
       return {
@@ -46,6 +54,8 @@ export default {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      margin-top: 1rem;
+
    }
 
    .TicketWrapper {
@@ -54,8 +64,8 @@ export default {
 
    .Ticket {
       width: 100%;
-      max-width: 320px;
-      min-height: 112px;
+      // max-width: 320px;
+      // min-height: 112px;
       aspect-ratio: 260 / 112;
       background-size: 100% 100%;
       background-repeat: no-repeat;
@@ -80,6 +90,10 @@ export default {
             line-height: 2.2rem;
             letter-spacing: 2px;
             padding: 20px;
+
+            @media (max-width: $sm) {
+               padding: 0px;
+            }
          }
       }
    }
@@ -87,9 +101,13 @@ export default {
    .Text {
       text-align: center;
       line-height: 1.3rem;
-      width: 70%;
+      width: 60%;
       align-self: center;
       margin: 0 auto 20px auto;
+
+      @media (max-width: $sm) {
+         width: 100%;
+      }
    }
 }
 </style>

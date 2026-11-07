@@ -19,7 +19,8 @@
                         <span>Sábado</span>
                         <div>
                            <p><b>Ceremonia y fiesta</b></p>
-                           <p>Tipo cóctel</p>
+                           <p>Estilo cóctel o formal</p>
+                           <p>Reservamos el blanco para las novias</p>
                         </div>
                      </li>
                      <li>
@@ -46,7 +47,7 @@
                         <p>Algo de abrigo para la noche.</p>
                      </li>
                      <li>
-                        <p>Espejos y luces para maquillaje.</p>
+                        <p>Espejos y luces para maquillarte.</p>
                      </li>
                   </ul>
                </div>
@@ -72,6 +73,8 @@ export default {
 @import '@/theme/_breakpoints.scss';
 
 .ExtraInfo {
+
+
    .Wrapper {
       margin-top: 1rem;
       display: grid;
@@ -80,11 +83,23 @@ export default {
 
       @media (max-width: $lg) {
          grid-template-columns: 1fr;
-         row-gap: 3rem;
+         row-gap: 1rem;
       }
 
 
       .Note {
+         &+.Note {
+            &::v-deep .Paper {
+               @media (max-width: $sm) {
+                  padding-bottom: 3rem;
+               }
+            }
+
+            @media (max-width: $sm) {
+               margin-bottom: 3rem;
+            }
+         }
+
          &::v-deep .Paper {
             background-position-y: top;
             padding: 20px;
@@ -116,6 +131,10 @@ export default {
                   bottom: -40px;
                   right: 0px;
                   height: 6rem;
+
+                  @media (max-width: $sm) {
+                     bottom: -7rem;
+                  }
                }
 
             }
@@ -139,6 +158,11 @@ export default {
                      margin-right: 20px;
                      font-weight: bold;
                      text-transform: uppercase;
+
+                     @media (max-width: $sm) {
+                        min-width: 6rem;
+                        width: 6rem;
+                     }
 
                   }
 

@@ -7,7 +7,7 @@ export { default as Town } from "./Town.vue";
 export { default as Transport } from "./Transport.vue";
 export { default as ExtraInfo } from "./ExtraInfo.vue";
 export { default as Invite } from "./Invite.vue";
-export { default as Contact } from "./Contact.vue";
 export { default as ConfirmForm } from "./ConfirmForm.vue";
 export { default as LoveStory } from "./LoveStory.vue";
 export { default as FinalCover } from "./FinalCover.vue";
+export { default as Gift } from "./Gift.vue";

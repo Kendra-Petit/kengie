@@ -9,3 +9,4 @@ export { default as Modal } from "./Modal/Modal.vue";
 export { default as Note } from "./Note/Note.vue";
 export { default as Pollaroid } from "./Pollaroid/Pollaroid.vue";
 export { default as SplidePollaroid } from "./SplidePollaroid/SplidePollaroid.vue";
+export { default as PillSelectorInput } from "./PillSelectorInput/PillSelectorInput.vue";

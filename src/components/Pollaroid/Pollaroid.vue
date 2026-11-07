@@ -1,17 +1,17 @@
 <template>
    <div class="Pollaroid">
-      <img class="Photo" :src="require(`@/assets/imgs/${this.img}`)" />
+      <img class="Photo" :src="require(`@/assets/imgs/${img}`)" @click="openModal = true" />
    </div>
 </template>
 
 <script>
 import VueTypes from 'vue-types'
+
 export default {
    name: 'Pollaroid',
    props: {
       img: VueTypes.string,
    },
-
 }
 </script>
 <style lang="scss" scoped>

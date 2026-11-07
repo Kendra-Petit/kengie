@@ -7,10 +7,10 @@
          <div class="TransportWrapper">
             <div class="Description">
                <p>Hay un <b>autobús directo</b></p>
-               <p>desde Mendez Álvaro hasta Navaluenga.</p>
+               <p>desde Méndez Álvaro hasta Navaluenga.</p>
                <p class="ExtraInfo">La estación de navaluenga está a 15min andando de la finca.</p>
             </div>
-            <img class="Illustration" :src="require('@/assets/imgs/icons/bus.webp')" />
+            <img class="Illustration bus" :src="require('@/assets/imgs/icons/bus.webp')" />
          </div>
          <div class="BusSchedule">
             <div class="Left">
@@ -37,9 +37,9 @@
             <!-- MAD-NAV https://regular.autobusing.com/venta/inicio_info?origen_codigo=0041&destino_codigo=0056&empresa=cevesa -->
 
             <div class="Right">
-               <p>tiene un precio de <b>10€ por trayecto</b>.</p>
-               <a class="Button" href="https://www.cevesa.es/horario" target="_blank">COMPRAR BILLETES DE BUS</a>
-               <p class="Note">Los pasajes salen a la venta 30 días antes de la fecha del viaje.</p>
+               <p>Los pasajes tienen un precio de <b>10€ por trayecto</b>.</p>
+               <p>y salen a la venta 30 días antes de la fecha del viaje.</p>
+               <a class="Button" href="https://www.cevesa.es/horario" target="_blank">COMPRAR BILLETES</a>
             </div>
 
          </div>
@@ -91,6 +91,10 @@ export default {
          font-weight: $font-weight-normal;
          font-size: 1.3rem;
          letter-spacing: 1px;
+
+         @media (max-width: $md) {
+            margin-bottom: .8rem;
+         }
       }
 
       .TransportWrapper {
@@ -99,6 +103,13 @@ export default {
          padding: 12px 120px 12px 40px;
          display: flex;
          position: relative;
+         gap: 1rem;
+
+         @media (max-width: $md) {
+            padding: 12px;
+            flex-direction: column-reverse;
+            border-radius: .5rem .5rem 0 0;
+         }
 
          .Description {
             position: relative;
@@ -115,15 +126,39 @@ export default {
                   bottom: -30px;
                   font-size: .8rem;
 
+                  @media (max-width: $md) {
+
+                     position: relative;
+                     bottom: auto;
+                     font-size: 1rem;
+                     margin-top: 1rem;
+                  }
+
                }
             }
          }
 
          .Illustration {
             height: 5rem;
+            width: auto;
             position: absolute;
             right: 0;
             top: -10px;
+
+            @media (max-width: $md) {
+               position: relative;
+               width: 4rem;
+               height: auto;
+               right: auto;
+               top: auto;
+               margin-top: 0;
+               align-self: flex-start;
+
+               &.bus {
+                  width: 5.5rem;
+               }
+            }
+
          }
       }
 
@@ -135,10 +170,17 @@ export default {
          padding-left: 40px;
          border-radius: .5rem;
 
+         @media (max-width: $md) {
+            flex-direction: column;
+            margin-top: 0;
+            border-radius: 0 0 .5rem .5rem;
+            padding-left: 20px;
+         }
+
          .Left {
             display: flex;
             flex-direction: column;
-            min-width: 40%;
+            // min-width: 40%;
 
             .Itinerary {
                &+.Itinerary {
@@ -161,6 +203,11 @@ export default {
                   .Illustration {
                      height: 30px;
                      width: auto;
+
+                     @media (max-width: $md) {
+                        height: 1rem;
+                     }
+
                   }
                }
             }
@@ -172,9 +219,22 @@ export default {
             align-items: center;
             justify-content: center;
             text-align: center;
+            margin-left: 2rem;
+
+            @media (max-width: $md) {
+               margin-top: 32px;
+               align-items: flex-start;
+               text-align: left;
+               margin-left: 0;
+               justify-content: flex-start;
+            }
 
             p+p {
                margin-top: .5rem;
+
+               @media (max-width: $sm) {
+                  margin-top: 1rem;
+               }
             }
 
             .Button {
@@ -185,6 +245,10 @@ export default {
                font-weight: bold;
                margin-top: 1rem;
                border: none;
+
+               @media (max-width: $md) {
+                  margin-top: 1.5rem;
+               }
             }
 
             .Note {

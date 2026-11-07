@@ -19,7 +19,7 @@
                      NAVALUENGA
                   </h3>
                   <p class="Text">
-                     Finca el Venero
+                     Finca El Venero
                   </p>
                </div>
                <div class="TextBlock">
@@ -57,6 +57,7 @@ export default {
 
    @media (max-width: $md) {
       flex-direction: column;
+      padding-top: 1rem !important;
    }
 
    .ContentWrapper {
@@ -74,7 +75,7 @@ export default {
       @media (max-width: $md) {
          margin-right: 0;
          width: 100%;
-         margin-bottom: 2rem;
+         // margin-bottom: 2rem;
       }
 
       @media (max-width: $sm) {
@@ -86,13 +87,31 @@ export default {
          font-family: $font-family-title;
          font-weight: $font-weight-normal;
          letter-spacing: 3px;
+
+         @media (max-width: $md) {
+            text-align: center;
+         }
+      }
+
+      .Pollaroid {
+         @media (max-width: $md) {
+            width: 100%;
+         }
       }
 
       .Note {
          width: 40%;
          position: absolute;
          right: 0;
-         top: -40px;
+         top: -3rem;
+
+         @media (max-width: $md) {
+            width: 70%;
+            position: relative;
+            left: -1.2rem;
+            top: -3rem;
+            align-self: flex-end;
+         }
       }
 
    }

@@ -2,15 +2,23 @@
    <div class="SplidePollaroid">
       <Splide :options="sliderOptions">
          <SplideSlide v-for="({ image, ext, path, isVertical }, itemIndex) in items || []" :key="`image-${itemIndex}`">
-            <Pollaroid :img="`${path}/${image}${ext ? ext : '.webp'}`" :class="{ isVertical }" />
+            <Pollaroid :img="`${path}/${image}${ext ? ext : '.webp'}`" :class="{ isVertical }"
+               @click.native="openModal = `${path}/${image}.webp`" />
          </SplideSlide>
       </Splide>
+      <Modal v-if="openModal !== null" @close="openModal = null">
+         <template #body>
+            <img class="ModalPhoto" :src="require(`@/assets/imgs/${openModal}`)" />
+         </template>
+
+      </Modal>
+
    </div>
 </template>
 
 <script>
 import VueTypes from 'vue-types'
-import { Pollaroid } from '@/components'
+import { Pollaroid, Modal } from '@/components'
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 
@@ -20,9 +28,11 @@ export default {
       Splide,
       SplideSlide,
       Pollaroid,
+      Modal,
    },
    data() {
       return {
+         openModal: null,
       };
    },
    props: {
@@ -61,6 +71,18 @@ export default {
 .SplidePollaroid {
    width: 100%;
 
+   .Modal {
+      .ModalPhoto {
+         width: 100%;
+         margin-top: 40px;
+         border-radius: 20px;
+
+         @media (max-width: $md) {
+            margin-top: 20px;
+         }
+      }
+   }
+
    .Pollaroid {
       width: 100%;
       height: 100%;
@@ -68,9 +90,10 @@ export default {
       min-height: 100%;
       margin-bottom: 1rem;
 
-      // &.isVertical {
-      //    width: 5rem;
-      // }
+      @media (max-width: $sm) {
+         padding: 8px;
+         padding-bottom: 20px;
+      }
    }
 
    &::v-deep .splide {
@@ -87,13 +110,14 @@ export default {
 
       .splide__slide {
          height: 15rem;
-         // height: auto;
-         // width: 100%;
-         // min-width: 2rem !important;
-
-         // object-fit: cover;
          width: 15rem !important;
          transition: all 0.5s;
+
+         @media (max-width: $sm) {
+            height: 10rem;
+            width: 10rem !important;
+            margin-right: 12px !important;
+         }
       }
    }
 }

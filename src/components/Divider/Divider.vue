@@ -1,5 +1,6 @@
 <template>
    <div class="Divider">
+      <!-- :style="{ transform: bottom ? 'transform: translateY(4px)' : 'transform: translateY(-4px)' }" -->
       <div class="Diamond" />
       <div class="Diamond" />
    </div>
@@ -12,6 +13,7 @@ export default {
    name: 'Divider',
    props: {
       extraDiamond: VueTypes.bool.def(false),
+      bottom: VueTypes.bool.def(false),
    },
 }
 </script>
@@ -44,7 +46,7 @@ export default {
       background-color: $primary;
       width: 7px;
       height: 7px;
-      transform: rotate(45deg);
+      transform: rotate(45deg); // translateY(-1px);
    }
 }
 </style>

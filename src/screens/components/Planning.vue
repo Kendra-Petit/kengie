@@ -1,10 +1,10 @@
 <template>
    <div class="Planning">
       <Title text="Tres días para celebrar" />
-      <p class="Text">
+      <!-- <p class="Text">
          Naturaleza, juegos, comida, música, piscina,
          y las personas que queremos.
-      </p>
+      </p> -->
       <div class="Wrapper">
          <div class="BoxContainer">
             <Note>
@@ -43,7 +43,7 @@
                         </li>
                         <li>
                            <span>12h</span>
-                           <p>Picina</p>
+                           <p>Piscina</p>
                         </li>
                         <li>
                            <span>13h</span>
@@ -63,15 +63,11 @@
                         </li>
                         <li>
                            <span>19h</span>
-                           <p>Comida</p>
+                           <p>Cena</p>
                         </li>
                         <li>
                            <span>20h</span>
                            <p>Fiesta</p>
-                        </li>
-                        <li>
-                           <span>1h</span>
-                           <p>Fin</p>
                         </li>
                      </ul>
                   </div>
@@ -93,7 +89,7 @@
                         </li>
                         <li>
                            <span>12h</span>
-                           <p>Kickingball de agua</p>
+                           <p>Kickingball</p>
                         </li>
                         <li>
                            <span>14h</span>
@@ -110,10 +106,10 @@
          </div>
       </div>
       <p class="Text">
-         <i>El itinerario puede estar sujeto a cambios.</i>
+         <i>*El itinerario puede estar sujeto a cambios*</i>
       </p>
       <div class="ExtraNotes">
-         <Note :hideTape="true">
+         <!-- <Note :hideTape="true">
             <template>
                <div class="ExtraNotesWrapper">
                   <img class="Illustration" :src="require('@/assets/imgs/icons/coffee.webp')" />
@@ -132,7 +128,27 @@
                   </p>
                </div>
             </template>
-         </Note>
+         </Note> -->
+         <div class="NotesWrapper" :style="{
+            '--paper-image': `url(${require('@/assets/imgs/hoja.webp')})`
+         }">
+            <div class="ExtraNotesWrapper">
+               <img class="Illustration" :src="require('@/assets/imgs/icons/coffee.webp')" />
+               <p class="Text">
+                  Los <b>desayunos</b> estarán disponibles en la cocina de la casa 2 de 8h a 11h.
+               </p>
+            </div>
+         </div>
+         <div class="NotesWrapper" :style="{
+            '--paper-image': `url(${require('@/assets/imgs/hoja.webp')})`
+         }">
+            <div class="ExtraNotesWrapper">
+               <img class="Illustration" :src="require('@/assets/imgs/icons/fire.webp')" />
+               <p class="Text">
+                  Siéntete libre de participar en las actividades que te apetezcan
+               </p>
+            </div>
+         </div>
       </div>
    </div>
 </template>
@@ -158,8 +174,33 @@ export default {
 
 .Planning {
 
+   .NotesWrapper {
+      padding: 2rem;
+      padding-bottom: 3rem;
+      height: fit-content;
+      box-shadow: 0px 3px 10px rgba(#333, 0.2);
+      position: relative;
+      isolation: isolate;
+      background: $white;
+
+      &::before {
+         content: '';
+         position: absolute;
+         inset: 0;
+         background-image: var(--paper-image);
+         background-size: cover;
+         background-position: center;
+         opacity: 1;
+         z-index: -1;
+      }
+   }
+
    .Title {
       text-align: center;
+
+      @media (max-width: $md) {
+         margin-bottom: 2.5rem;
+      }
    }
 
    .Text {
@@ -180,6 +221,15 @@ export default {
       @media (max-width: $md) {
          grid-template-columns: 1fr;
          row-gap: 1.5rem;
+         width: 70%;
+         margin: 0 auto;
+      }
+
+      @media (max-width: $sm) {
+         grid-template-columns: 1fr;
+         row-gap: 1.5rem;
+         width: 100%;
+         margin-bottom: 1rem;
       }
 
       .Box {
@@ -240,6 +290,9 @@ export default {
       display: flex;
       gap: 20px;
 
+      @media (max-width: $sm) {
+         flex-direction: column;
+      }
 
       .Note {
          &::v-deep .Paper {
@@ -248,26 +301,24 @@ export default {
             display: flex;
             align-items: center;
          }
+      }
 
-         .ExtraNotesWrapper {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+      .ExtraNotesWrapper {
+         display: flex;
+         align-items: center;
+         gap: 20px;
 
-            .Illustration {
-               height: 4rem;
-               width: auto;
-               flex: 1;
-            }
-
-            .Text {
-               width: auto;
-               margin: 0;
-               text-align: left;
-            }
+         .Illustration {
+            height: 4rem;
+            width: auto;
+            flex: 1;
          }
 
-
+         .Text {
+            width: auto;
+            margin: 0;
+            text-align: left;
+         }
       }
 
 

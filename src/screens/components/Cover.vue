@@ -26,21 +26,26 @@ export default {
       align-items: center;
       justify-content: center;
       margin: 0 auto;
-      max-width: 80%;
+      max-width: 70%;
       padding: 4rem 0;
+
+      @media (min-width: $sm) {
+         max-width: 300px;
+      }
 
       @media (min-width: $md) {
          max-width: 300px;
+         padding: 4rem 0 5rem;
       }
 
       @media (min-width: $lg) {
          max-width: 400px;
-         padding: 6rem 0;
+         padding: 5rem 0 6rem;
       }
 
       @media (min-width: $xl) {
          max-width: 500px;
-         padding: 7rem 0;
+         padding: 6rem 0 7rem;
       }
 
       img {

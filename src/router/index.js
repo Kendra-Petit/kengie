@@ -13,8 +13,12 @@ const router = new Router({
       component: MainScreen,
       children: [
         {
-          path: "/",
+          path: "/:code",
           component: HomePageScreen,
+        },
+        {
+          path: "/",
+          component: NotFoundScreen,
         },
       ],
     },

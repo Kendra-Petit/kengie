@@ -22,7 +22,7 @@ export default {
    position: relative;
    display: table;
    margin: 0; // Alineado a la izquierda
-   padding-bottom: 4px;
+   padding-bottom: 3px;
    border-bottom: 1px solid $primary;
    margin-bottom: 22px;
    padding-right: 8px;
@@ -30,7 +30,7 @@ export default {
    &::before {
       content: "";
       position: absolute;
-      bottom: -1px;
+      bottom: 0-1px;
       right: 100%;
       width: calc((100vw - 100%) / 2);
       height: 1px;

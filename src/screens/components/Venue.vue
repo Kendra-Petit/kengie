@@ -2,14 +2,20 @@
    <div class="Venue">
       <div class="SectionWrapper">
          <LongTitle text="La Finca" />
-         <Pollaroid img="venue.webp" />
+         <Pollaroid img="venue.webp" @click.native="openModal = true" />
       </div>
       <SplidePollaroid :items="venueImages" :autoWidthProp="true" />
+      <Modal v-if="openModal" @close="openModal = false">
+         <template #body>
+            <img class="ModalPhoto" :src="require(`@/assets/imgs/venue.webp`)" />
+         </template>
+
+      </Modal>
    </div>
 </template>
 
 <script>
-import { LongTitle, Pollaroid, SplidePollaroid } from '@/components'
+import { LongTitle, Pollaroid, SplidePollaroid, Modal } from '@/components'
 const pathMain = "venue";
 const ext = ".webp";
 
@@ -18,10 +24,12 @@ export default {
    components: {
       LongTitle,
       Pollaroid,
-      SplidePollaroid
+      SplidePollaroid,
+      Modal
    },
    data() {
       return {
+         openModal: false,
          venueImages: [
             { image: "finca", path: pathMain, ext, label: 'Finca', },
             { image: "coctail", path: pathMain, ext, isVertical: true },
@@ -43,6 +51,16 @@ export default {
       width: 100%;
       padding-bottom: 12px;
       margin-bottom: 1rem;
+   }
+
+   .ModalPhoto {
+      width: 100%;
+      margin-top: 40px;
+      border-radius: 20px;
+
+      @media (max-width: $md) {
+         margin-top: 20px;
+      }
    }
 }
 </style>

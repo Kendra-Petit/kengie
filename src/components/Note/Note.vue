@@ -32,6 +32,7 @@ export default {
       background-position-y: bottom;
       padding: 40px 24px;
       position: relative;
+      background-color: transparent;
 
       .Tape {
          z-index: 2;

@@ -82,20 +82,20 @@ export default {
 textarea {
     width: 100%;
     min-height: 50px;
-    margin-bottom: 16px;
+    // margin-bottom: 16px;
     resize: none;
     padding: 15px 20px;
     border-radius: 10px;
-    border: none;
-    background-color: $white;
-    color: $form-color;
+    border: 1px solid $primary;
+    background-color: transparent;
+    color: $primary;
     font-size: 16px;
     font-weight: 400;
     outline: none;
     transition: box-shadow 0.3s ease-in-out;
 
     &:focus {
-        box-shadow: inset 0 0 0 2px $gray-05;
+        box-shadow: inset 0 0 0 1px rgba(77, 101, 84, 0.5);
     }
 
     &[readonly] {
